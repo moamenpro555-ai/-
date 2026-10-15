@@ -1,27 +1,49 @@
-// الأزرار والأقسام
+// ================== عناصر الصفحة ==================
+const videos = document.querySelectorAll("video");
+
 const buttons = [
     { btn: document.getElementById("child4"), section: document.querySelector(".level1") },
     { btn: document.getElementById("child6"), section: document.querySelector(".level2") },
     { btn: document.getElementById("child8"), section: document.querySelector(".level3") }
 ];
 
-// دالة تعرض القسم المختار وتخفي الباقي
+// ================== تبديل المستويات ==================
+// دالة تعرض القسم المختار وتخفي الباقي (وتوقف فيديوهات الأقسام المخفية)
 function showLevel(selected) {
     buttons.forEach(function (item) {
-        item.section.style.display = (item === selected) ? "flex" : "none";
+        const isSelected = (item === selected);
+        item.section.style.display = isSelected ? "flex" : "none";
+        if (!isSelected) {
+            item.section.querySelectorAll("video").forEach(function (v) {
+                v.pause();
+            });
+        }
     });
 }
 
 // عند الضغط على كل زر
 buttons.forEach(function (item) {
+    if (!item.btn) return;
     item.btn.addEventListener("click", function () {
         showLevel(item);
     });
 });
 
-// ================== حماية الفيديوهات (تصعيب مش منع تام) ==================
-const videos = document.querySelectorAll("video");
+// ================== تحميل الفيديو اللي المستخدم يختاره بس ==================
+videos.forEach(function (v) {
+    // ما يحمّلش أي حاجة من الفيديو غير لما المستخدم يدوس تشغيل
+    v.preload = "none";
+    v.setAttribute("preload", "none");
 
+    // لما فيديو يشتغل، وقف أي فيديو تاني شغال
+    v.addEventListener("play", function () {
+        videos.forEach(function (other) {
+            if (other !== v) other.pause();
+        });
+    });
+});
+
+// ================== حماية الفيديوهات (تصعيب مش منع تام) ==================
 videos.forEach(function (v) {
     // منع زرار التحميل وتشغيل الفيديو في نافذة منفصلة
     v.setAttribute("controlsList", "nodownload noplaybackrate");
