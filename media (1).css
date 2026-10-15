@@ -1,0 +1,357 @@
+/* =====================================================
+   media (1).css
+   لازم يتحمّل بعد plat.css (زي ما هو عندك في الـ HTML)
+   ===================================================== */
+
+/* ============ إصلاحات عامة (كل الشاشات) ============ */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    height: auto;          /* بدل 1063px الثابتة */
+    min-height: 100vh;
+    overflow-x: hidden;    /* يمنع السكرول الأفقي */
+}
+img,
+video {
+    max-width: 100%;
+}
+.parent {
+    min-height: 100vh;
+}
+
+/* ============ شاشات كبيرة جدًا (1600px وأكتر) ============ */
+@media (min-width: 1600px) {
+    .video1,
+    .video2,
+    .video3 {
+        width: 360px;
+    }
+    .child10 {
+        font-size: 23px;
+    }
+}
+
+/* ============ لابتوب صغير (لحد 1200px) ============ */
+@media (max-width: 1200px) {
+    .logo {
+        width: 30%;
+    }
+    .img_adh {
+        width: 100%;
+        max-width: 370px;
+        height: 63px;
+        object-fit: contain;
+    }
+    .start_1 {
+        width: 65%;
+        gap: 80px;
+        justify-content: center;
+    }
+    .link {
+        font-size: 18px;
+    }
+    .phase {
+        width: 90%;
+        gap: 50px;
+    }
+    .arab {
+        gap: 20px;
+    }
+    #img_1 {
+        width: 200px;
+    }
+    .img_6 {
+        width: 135px;
+    }
+    .child10 {
+        font-size: 19px;
+    }
+}
+
+/* ============ تابلت أفقي (لحد 992px) ============ */
+@media (max-width: 992px) {
+    /* النافبار */
+    .logo {
+        width: 28%;
+    }
+    .start_1 {
+        width: 72%;
+        gap: 30px;
+        justify-content: space-around;
+    }
+    .link {
+        font-size: 17px;
+    }
+
+    /* الصفحة الرئيسية */
+    main {
+        height: auto;
+        min-height: 569px;
+        padding: 30px 0 60px;
+        gap: 35px;
+        background-size: cover;
+        background-position: center top;
+    }
+    .text,
+    .phase,
+    .text1,
+    .arab {
+        position: static;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .text_1,
+    .text_2,
+    .text_9 {
+        text-align: center;
+    }
+    .phase {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+    .child1,
+    .child2,
+    .child3 {
+        flex: 1 1 220px;
+        max-width: 320px;
+    }
+    .arab {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    #img_1 {
+        width: 180px;
+    }
+    .img_6 {
+        position: static;
+        width: 125px;
+    }
+
+    /* صفحات المستويات */
+    aside {
+        width: 26%;
+        margin-right: 20px;
+    }
+    .child10 {
+        font-size: 17px;
+    }
+    .level1,
+    .level2,
+    .level3 {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        padding: 0 15px;
+    }
+    .level1 > div,
+    .level2 > div,
+    .level3 > div {
+        width: calc(50% - 10px);
+    }
+    .video1,
+    .video2,
+    .video3 {
+        width: 100%;
+    }
+}
+
+/* ============ تابلت عمودي (لحد 768px) ============ */
+@media (max-width: 768px) {
+    /* النافبار */
+    .logo {
+        width: 30%;
+    }
+    .start_1 {
+        width: 70%;
+        gap: 15px;
+    }
+    .link {
+        font-size: 15px;
+    }
+
+    /* الصفحة الرئيسية */
+    .text_1,
+    .text_9 {
+        font-size: 22px;
+    }
+    .text_3,
+    .text_5,
+    .text_7 {
+        font-size: 20px;
+    }
+    .text_4,
+    .text_6,
+    .text_8 {
+        font-size: 15px;
+    }
+
+    /* صفحات المستويات: القايمة فوق والفيديوهات تحتها */
+    .parent {
+        flex-direction: column;
+    }
+    aside {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin: 0;
+        padding: 20px 15px 10px;
+    }
+    .child4,
+    .child6,
+    .child8 {
+        flex: 1 1 150px;
+        max-width: 240px;
+    }
+    .child10 {
+        width: 100%;
+        font-size: 17px;
+    }
+    .line {
+        width: 90%;
+        height: 2px;
+        margin: 10px auto;
+    }
+    .level1,
+    .level2,
+    .level3 {
+        flex: none;
+        width: 100%;
+        margin-top: 0;
+        padding: 10px 15px 30px;
+    }
+}
+
+/* ============ موبايل (لحد 576px) ============ */
+@media (max-width: 576px) {
+    /* النافبار: اللوجو فوق واللينكات تحته */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 8px 0;
+    }
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+    .img_adh {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .start_1 {
+        width: 100%;
+        gap: 0;
+        padding-top: 8px;
+        justify-content: space-around;
+    }
+    .link {
+        font-size: 14px;
+    }
+
+    /* الصفحة الرئيسية */
+    main {
+        padding: 25px 0 50px;
+        gap: 28px;
+    }
+    .text_1,
+    .text_9 {
+        font-size: 20px;
+    }
+    .text_2 {
+        font-size: 14px;
+    }
+    .phase {
+        flex-direction: column;
+        align-items: center;
+    }
+    .child1,
+    .child2,
+    .child3 {
+        flex: none;
+        width: 100%;
+        max-width: 380px;
+        padding: 22px;
+    }
+    /* صور مادة اللغة العربية: شبكة منظمة بدل التبعثر */
+    .arab {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        justify-items: center;
+        align-items: center;
+    }
+    .arab > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    /* أول صورة (البانر) تاخد الصف كله */
+    .arab > div:first-child {
+        grid-column: 1 / -1;
+        max-width: 280px;
+    }
+    #img_1,
+    .img_6 {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        position: static;
+    }
+    #img_1 {
+        max-width: 280px;
+    }
+
+    /* صفحات المستويات */
+    aside {
+        gap: 10px;
+    }
+    .child4,
+    .child6,
+    .child8 {
+        flex: 1 1 130px;
+        max-width: none;
+    }
+    .child10 {
+        font-size: 15px;
+        padding: 9px 8px;
+        border-radius: 14px;
+    }
+    .level1,
+    .level2,
+    .level3 {
+        gap: 25px;
+        padding: 10px 12px 30px;
+    }
+    .level1 > div,
+    .level2 > div,
+    .level3 > div {
+        width: 100%;
+    }
+}
+
+/* ============ موبايلات صغيرة (لحد 380px) ============ */
+@media (max-width: 380px) {
+    .link {
+        font-size: 13px;
+    }
+    .text_1,
+    .text_9 {
+        font-size: 18px;
+    }
+    .text_3,
+    .text_5,
+    .text_7 {
+        font-size: 18px;
+    }
+    .child10 {
+        font-size: 14px;
+    }
+}
