@@ -280,13 +280,33 @@ video {
         max-width: 380px;
         padding: 22px;
     }
-    #img_1 {
-        width: 46%;
-        max-width: 170px;
+    /* صور مادة اللغة العربية: شبكة منظمة بدل التبعثر */
+    .arab {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        justify-items: center;
+        align-items: center;
     }
+    .arab > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    /* أول صورة (البانر) تاخد الصف كله */
+    .arab > div:first-child {
+        grid-column: 1 / -1;
+        max-width: 280px;
+    }
+    #img_1,
     .img_6 {
-        width: 42%;
-        max-width: 150px;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        position: static;
+    }
+    #img_1 {
+        max-width: 280px;
     }
 
     /* صفحات المستويات */
